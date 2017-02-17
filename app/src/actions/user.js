@@ -1,9 +1,5 @@
-import {
-  SET_USER_PERMISSIONS, SET_USER, SET_TOKEN, TOKEN_SESSION, LOGOUT, SET_CURRENT_PATHNAME
-} from 'actions';
-import { AUTH_PERMISSION_SET, GUEST_PERMISSION_SET } from 'constants';
+import { SET_USER, SET_TOKEN, TOKEN_SESSION, LOGOUT, SET_CURRENT_PATHNAME } from 'actions';
 import 'whatwg-fetch';
-import _ from 'lodash';
 import { browserHistory } from 'react-router';
 import ga from 'ga-react-router';
 
@@ -57,10 +53,6 @@ function getUserData(data) {
   };
 }
 
-function getAclData(data) {
-  return data.allowedFeatures;
-}
-
 export function getLoggedUser() {
   return (dispatch, getState) => {
     const state = getState();
@@ -74,10 +66,6 @@ export function getLoggedUser() {
       dispatch({
         type: SET_USER,
         payload: null
-      });
-      dispatch({
-        type: SET_USER_PERMISSIONS,
-        payload: GUEST_PERMISSION_SET
       });
       setGAUserDimension(false, state.user.currentPathname);
       return;
@@ -103,10 +91,6 @@ export function getLoggedUser() {
       dispatch({
         type: SET_USER,
         payload: getUserData(payload)
-      });
-      dispatch({
-        type: SET_USER_PERMISSIONS,
-        payload: _.uniq(AUTH_PERMISSION_SET.concat(getAclData(payload)))
       });
       setGAUserDimension(payload, state.user.currentPathname);
     });

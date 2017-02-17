@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { useScroll } from 'react-router-scroll';
 import AppContainer from 'containers/App';
 import HomeContainer from 'components/Home';
-import AuthMapContainer from 'containers/AuthMap';
 import ArticlesPublications from 'containers/ArticlesPublications';
 import FAQContainer from 'containers/FAQ';
 import Tutorials from 'components/Tutorials';
@@ -101,8 +100,6 @@ class Routes extends Component {
       >
         <Route path="/" component={AppContainer}>
           <IndexRoute component={HomeContainer} />
-
-          <Route path="map" component={AuthMapContainer} />
 
           <Route path="articles-publications" component={ArticlesPublications} />
 

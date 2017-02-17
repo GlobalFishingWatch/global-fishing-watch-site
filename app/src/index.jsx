@@ -8,23 +8,12 @@ import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-rou
 import _ from 'lodash';
 import Promise from 'promise-polyfill';
 import 'styles/global.scss';
-import reportReducer from 'reducers/report';
-import heatmapReducer from 'reducers/heatmap';
-import layerLibraryReducer from 'reducers/layersLibrary';
-import layersReducer from 'reducers/layers';
-import mapReducer from 'reducers/map';
-import analyticsMiddleware from 'middleware/analytics';
 import faqReducer from 'reducers/faq';
 import coverPageReducer from 'reducers/coverPage';
 import definitionReducer from 'reducers/definitions';
 import userReducer from 'reducers/user';
-import filtersReducer from 'reducers/filters';
 import contactReducer from 'reducers/contact';
-import searchReducer from 'reducers/search';
-import vesselInfoReducer from 'reducers/vesselInfo';
-import customLayerReducer from 'reducers/customLayer';
 import articlesPublicationsReducer from 'reducers/articlesPublications';
-import modalReducer from 'reducers/modal';
 import { triggerAnalyticsPageView } from 'actions/user';
 import Routes from './routes';
 
@@ -37,22 +26,12 @@ window.Promise = window.Promise || Promise;
  */
 const reducer = combineReducers({
   routing: routerReducer,
-  map: mapReducer,
   user: userReducer,
-  filters: filtersReducer,
   faqEntries: faqReducer,
   coverPageEntries: coverPageReducer,
   contactStatus: contactReducer,
-  search: searchReducer,
-  vesselInfo: vesselInfoReducer,
   definitions: definitionReducer,
-  articlesPublications: articlesPublicationsReducer,
-  report: reportReducer,
-  heatmap: heatmapReducer,
-  layerLibrary: layerLibraryReducer,
-  layers: layersReducer,
-  customLayer: customLayerReducer,
-  modal: modalReducer
+  articlesPublications: articlesPublicationsReducer
 });
 
 const middlewareRouter = routerMiddleware(browserHistory);
@@ -64,7 +43,7 @@ const middlewareRouter = routerMiddleware(browserHistory);
  */
 const store = createStore(
   reducer,
-  applyMiddleware(analyticsMiddleware, middlewareRouter, thunk)
+  applyMiddleware(middlewareRouter, thunk)
 );
 
 /**

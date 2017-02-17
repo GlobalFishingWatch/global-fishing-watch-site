@@ -15,26 +15,11 @@ class App extends Component {
       }
     }
     this.props.getLoggedUser();
-
-    if (!DISABLE_WELCOME_MODAL) this.props.setWelcomeModalUrl();
-  }
-
-  componentDidUpdate(nextProps) {
-    if (nextProps.welcomeModalUrl !== this.props.welcomeModalUrl && !DISABLE_WELCOME_MODAL) this.getWelcomeModal();
-  }
-
-  getWelcomeModal() {
-    const storedUrl = localStorage.getItem(WELCOME_MODAL_COOKIE_KEY);
-    if (this.props.welcomeModalUrl && storedUrl !== this.props.welcomeModalUrl) {
-      localStorage.setItem(WELCOME_MODAL_COOKIE_KEY, this.props.welcomeModalUrl);
-      this.props.setWelcomeModalContent();
-    }
   }
 
   render() {
     return (
       <div className="full-height-container">
-        {this.props.loading && <div>Loading....</div>}
         {this.props.children}
       </div>
     );
@@ -43,13 +28,9 @@ class App extends Component {
 }
 
 App.propTypes = {
-  loading: React.PropTypes.bool,
   children: React.PropTypes.object,
   setToken: React.PropTypes.func,
-  getLoggedUser: React.PropTypes.func,
-  setWelcomeModalUrl: React.PropTypes.func,
-  setWelcomeModalContent: React.PropTypes.func,
-  welcomeModalUrl: React.PropTypes.string
+  getLoggedUser: React.PropTypes.func
 };
 
 
