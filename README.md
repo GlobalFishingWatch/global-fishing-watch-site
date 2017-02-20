@@ -126,26 +126,6 @@ Endpoint of the Articles & publications section content
 
 Endpoint of the homepage slider section content
 
-#### REQUIRE_MAP_LOGIN
-
-Boolean value to determine if the user needs to be logged in to access the map (setting to false is experimental)
-
 #### GA_TRACKING_CODE
 
 Google Analytics tracking code.
-
-#### DEFAULT_WORKSPACE
-
-Name/ID of the default workspace to be loaded on the map (if `USE_LOCAL_WORKSPACE` is set to false, see below)
-
-#### LOCAL_WORKSPACE
-
-If set, should point to the local workspace to be loaded
-
-#### DISABLE_WELCOME_MODAL
-
-Disable welcome modal. Typically enabled in a dev environment, disabled in prod
-
-#### WELCOME_MODAL_COOKIE_KEY
-
-Key used to read the welcome modal's url cookie
