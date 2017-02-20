@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vizzuality/GlobalFishingWatch.git"
+    "url": "git+https://github.com/Vizzuality/global-fishing-watch-site.git"
   },
   "keywords": [
     "visualisation"
@@ -21,9 +21,9 @@
   "author": "Vizzuality <hello@vizzuality.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Vizzuality/GlobalFishingWatch/issues"
+    "url": "https://github.com/Vizzuality/global-fishing-watch-site/issues"
   },
-  "homepage": "https://github.com/Vizzuality/GlobalFishingWatch#readme",
+  "homepage": "https://github.com/Vizzuality/global-fishing-watch-site#readme",
   "dependencies": {
     "autoprefixer": "^6.5.2",
     "babel-core": "^6.22.1",
